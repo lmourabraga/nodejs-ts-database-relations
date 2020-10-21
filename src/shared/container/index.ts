@@ -1,4 +1,4 @@
-import { container } from 'tsyringe';
+import { container, inject } from 'tsyringe';
 
 import ICustomersRepository from '@modules/customers/repositories/ICustomersRepository';
 import CustomersRepository from '@modules/customers/infra/typeorm/repositories/CustomersRepository';
@@ -11,4 +11,17 @@ import OrdersRepository from '@modules/orders/infra/typeorm/repositories/OrdersR
 
 // TODO
 
-//Testing commit from mac
+container.registerSingleton<ICustomersRepository>(
+  'CustomersRepository',
+  CustomersRepository,
+);
+
+container.registerSingleton<IProductsRepository>(
+  'ProductsRepository',
+  ProductsRepository,
+);
+
+container.registerSingleton<IOrdersRepository>(
+  'OrdersRepository',
+  OrdersRepository,
+);
