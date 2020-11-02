@@ -10,10 +10,10 @@ interface IRequest {
   email: string;
 }
 
-@injectable('CustomersRepository')
+@injectable()
 class CreateCustomerService {
   constructor(
-    @inject
+    @inject('CustomersRepository')
     private customersRepository: ICustomersRepository
   ) { }
 
